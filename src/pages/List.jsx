@@ -610,6 +610,7 @@ const List = () => {
 
   return (
     <>
+      <h1>Title</h1>
       <table className="table table-bordered table-striped w-100">
         <thead>
           <tr>
