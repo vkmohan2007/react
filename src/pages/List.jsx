@@ -14,7 +14,7 @@ const List = () => {
 
   return (
     <>
-      <h1>List items</h1>
+      <h1>List items (Total 200)</h1>
       <table className="table table-bordered table-striped w-100">
         <thead>
           <tr>
