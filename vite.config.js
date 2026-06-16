@@ -7,6 +7,6 @@ export default defineConfig({
   base: '/react/',
   server: {
     open: true,
-    port: 3001,
+    port: 9999,
   },
 });
