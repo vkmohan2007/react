@@ -13,24 +13,27 @@ const List = () => {
   }, []);
 
   return (
-    <table className="table table-bordered table-striped w-100">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Completed</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((item) => (
-          <tr key={item.id}>
-            <td>{item.id}</td>
-            <td>{item.title}</td>
-            <td>{item.completed ? "Yes" : "No"}</td>
+    <>
+      <h1>List items</h1>
+      <table className="table table-bordered table-striped w-100">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Completed</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {data.map((item) => (
+            <tr key={item.id}>
+              <td>{item.id}</td>
+              <td>{item.title}</td>
+              <td>{item.completed ? "Yes" : "No"}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 };
 
