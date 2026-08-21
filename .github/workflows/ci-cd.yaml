@@ -256,12 +256,14 @@ jobs:
     # ============================================================
     # 7. DEPLOY TO VPS
     # ============================================================
+    # ============================================================
+  # 7. DEPLOY TO VPS
+  # ============================================================
   deploy-vps:
     name: Deploy to VPS
     runs-on: ubuntu-latest
     needs: docker-push
 
-    # Deploy only from main
     if: github.ref == 'refs/heads/main'
 
     steps:
@@ -275,19 +277,17 @@ jobs:
           script: |
             set -e
 
+            IMAGE="ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest"
+
             echo "Connected to VPS"
             whoami
             hostname
 
-            IMAGE="ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:latest"
-
-            echo "Pulling image: $IMAGE"
+            echo "Pulling image..."
             docker pull "$IMAGE"
 
-            echo "Stopping existing container..."
+            echo "Removing old container..."
             docker stop "${{ env.IMAGE_NAME }}" || true
-
-            echo "Removing existing container..."
             docker rm "${{ env.IMAGE_NAME }}" || true
 
             echo "Starting new container..."
@@ -297,10 +297,7 @@ jobs:
               -p 9999:80 \
               "$IMAGE"
 
+            echo "Testing application..."
+            curl --fail http://localhost:9999
+
             echo "Deployment completed successfully"
-
-            echo "Running container:"
-            docker ps --filter "name=${{ env.IMAGE_NAME }}"
-
-            echo "Testing application:"
-            curl -I http://localhost:9999
