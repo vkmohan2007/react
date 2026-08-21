@@ -99,7 +99,8 @@ jobs:
 
       - name: Check SonarQube
         run: |
-          curl -I "${{ secrets.SONAR_HOST_URL }}/api/system/status"
+          curl --fail --silent --show-error \
+            "${{ secrets.SONAR_HOST_URL }}/api/system/status"
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v8.2.1
