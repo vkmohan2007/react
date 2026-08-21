@@ -9,7 +9,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path="/react" element={<List />} />
+        <Route path="/" element={<List />} />
         <Route path="*" element={<h1>Route Not Found</h1>} />
       </Routes>
       <Footer />
