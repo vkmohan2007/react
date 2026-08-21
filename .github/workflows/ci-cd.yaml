@@ -97,6 +97,10 @@ jobs:
       - name: Run tests with coverage
         run: npm run test:ci
 
+      - name: Check SonarQube
+        run: |
+          curl -I "${{ secrets.SONAR_HOST_URL }}/api/system/status"
+
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v8.2.1
         env:
