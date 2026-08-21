@@ -8,7 +8,6 @@ function App() {
   return (
     <>
       <Header />
-      {/* <List /> */}
       <Routes>
         <Route path="/react" element={<List />} />
         <Route path="*" element={<h1>Route Not Found</h1>} />
