@@ -23,3 +23,10 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+react_ssh
+react_ssh.pub
+react_ssh
+*.pem
+*.key
+id_rsa
+id_ed25519
