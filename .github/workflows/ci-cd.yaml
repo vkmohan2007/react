@@ -43,7 +43,7 @@ jobs:
         run: |
           node --version
           npm --version
-          time npm ci --verbose
+          npm ci
 
       - name: Run ESLint
         run: npm run lint
@@ -92,7 +92,7 @@ jobs:
         run: |
           node --version
           npm --version
-          time npm ci --verbose
+          npm ci
 
       - name: Run tests with coverage
         run: npm run test:ci
