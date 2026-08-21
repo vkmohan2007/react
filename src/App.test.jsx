@@ -13,14 +13,14 @@ function renderApp(route) {
 
 describe('App', () => {
   it('renders the header and footer', () => {
-    renderApp('/react')
+    renderApp('/')
 
     expect(screen.getByText('Header')).toBeInTheDocument()
     expect(screen.getByText('Footer')).toBeInTheDocument()
   })
 
-  it('renders the list page at /react', () => {
-    renderApp('/react')
+  it('renders the list page at /', () => {
+    renderApp('/')
 
     expect(
       screen.getByText('delectus aut autem')
